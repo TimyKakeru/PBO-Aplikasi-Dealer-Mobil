@@ -1,6 +1,6 @@
-package GusDealer;
+package BahanBakar;
 
-public class Mobil {
+public abstract class Mobil {
     protected String id;
     protected String merk;
     protected String model;
@@ -16,12 +16,8 @@ public class Mobil {
         this.harga = harga;
         this.tahun = tahun;
     }
-    public void infoMobil() {
-        System.out.println("ID: " + id);
-        System.out.println("Merk: " + merk);
-        System.out.println("Model: " + model);
-        System.out.println("Warna: " + warna);
-        System.out.println("Harga: " + harga);
-        System.out.println("Tahun: " + tahun);
-    }
+    public abstract void infoMobil() ;
+
+
+
 }
