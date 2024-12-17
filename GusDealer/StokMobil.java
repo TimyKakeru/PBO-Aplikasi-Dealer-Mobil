@@ -1,6 +1,7 @@
 package GusDealer;
 
 import BahanBakar.Mobil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,6 @@ public class StokMobil {
         System.out.println("Stok Mobil:");
         for (Mobil mobil : daftarMobil) {
             mobil.infoMobil();
-            System.out.println("-".repeat(20));
         }
     }
 }
