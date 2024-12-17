@@ -17,7 +17,4 @@ public abstract class Mobil {
         this.tahun = tahun;
     }
     public abstract void infoMobil() ;
-
-
-
 }
