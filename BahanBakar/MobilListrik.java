@@ -1,8 +1,8 @@
 package BahanBakar;
 
-public class MobilBensin extends Mobil {
-    public MobilBensin(String id, String merk, String model, String warna, int harga, int tahun) {
-        super(id, merk, model, warna, harga, tahun, "Bensin");
+public class MobilListrik extends Mobil {
+    public MobilListrik(String id, String merk, String model, String warna, int harga, int tahun) {
+        super(id, merk, model, warna, harga, tahun, "Listrik");
     }
 
     @Override

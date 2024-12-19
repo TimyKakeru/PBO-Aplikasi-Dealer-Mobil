@@ -2,7 +2,7 @@ package BahanBakar;
 
 public class MobilDiesel extends Mobil {
     public MobilDiesel(String id, String merk, String model, String warna, int harga, int tahun) {
-        super(id, merk, model, warna, harga, tahun);
+        super(id, merk, model, warna, harga, tahun, "Diesel");
     }
 
     @Override
@@ -13,6 +13,6 @@ public class MobilDiesel extends Mobil {
         System.out.println("Warna: " + warna);
         System.out.println("Harga: " + harga);
         System.out.println("Tahun: " + tahun);
-        System.out.println("Tipe: Diesel");
+        System.out.println("Tipe: " + tipe);
     }
 }
