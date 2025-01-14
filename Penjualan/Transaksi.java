@@ -7,17 +7,18 @@ import java.util.Date;
 public class Transaksi {
     private String idTransaksi;
     private Mobil mobil;
-    private String pembeli;
+    private Customer customer; // Menggunakan objek Customer
     private Date tanggalTransaksi;
-    private double hargaJual;
+    private int hargaJual;
 
-    public Transaksi(String idTransaksi, Mobil mobil, String pembeli, Date tanggalTransaksi, double hargaJual) {
+    public Transaksi(String idTransaksi, Mobil mobil, Customer customer, Date tanggalTransaksi, int hargaJual) {
         this.idTransaksi = idTransaksi;
         this.mobil = mobil;
-        this.pembeli = pembeli;
+        this.customer = customer;
         this.tanggalTransaksi = tanggalTransaksi;
         this.hargaJual = hargaJual;
     }
+
 
     public String getIdTransaksi() {
         return idTransaksi;
@@ -27,8 +28,8 @@ public class Transaksi {
         return mobil;
     }
 
-    public String getPembeli() {
-        return pembeli;
+    public Customer getCustomer() {
+        return customer;
     }
 
     public Date getTanggalTransaksi() {
@@ -39,11 +40,19 @@ public class Transaksi {
         return hargaJual;
     }
 
+    public double hitungPajak() {
+        return getHargaJual() * 0.1;
+    }
+
     public void infoTransaksi() {
         System.out.println("ID Transaksi: " + idTransaksi);
-        System.out.println("Pembeli: " + pembeli);
+        System.out.println("Pembeli: " + customer.getNama());
         System.out.println("Tanggal Transaksi: " + tanggalTransaksi);
         System.out.println("Harga Jual: " + hargaJual);
+        System.out.println("Alamat Customer: " + customer.getAlamat());
+        System.out.println("Email Customer: " + customer.getEmail());
+        System.out.println("No HP Customer: " + customer.getNoHp());
+        System.out.println("Saldo Customer: " + customer.getSaldo());
         mobil.infoMobil();
     }
 }

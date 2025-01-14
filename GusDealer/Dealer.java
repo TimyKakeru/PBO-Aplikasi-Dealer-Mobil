@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Dealer {
     final String nama;
-    public StokMobil stokMobil;
+    private StokMobil stokMobil;
     private List<Transaksi> daftarTransaksi;
 
     public Dealer(String nama) {
@@ -18,19 +18,29 @@ public class Dealer {
         this.stokMobil = new StokMobil();
         this.daftarTransaksi = new ArrayList<>(); // Inisialisasi daftarTransaksi
     }
+
     public void jualMobil(Customer customer, Mobil mobil) {
-        double hargaJual = mobil.getHarga(); // Ambil harga dari objek mobil
-        double totalBiaya = hargaJual + customer.hitungPajak(); // Hitung total biaya termasuk pajak
+        if (mobil == null) {
+            System.out.println("Mobil tidak ditemukan.");
+            return;
+        }
+
+        int hargaJual = mobil.getHarga(); // Ambil harga dari objek mobil
+        Transaksi transaksi = new Transaksi("TRANS" + (daftarTransaksi.size() + 1), mobil, customer, new Date(), hargaJual);
+        double totalBiaya = hargaJual + transaksi.hitungPajak(); // Hitung total biaya termasuk pajak
 
         if (customer.getSaldo() >= totalBiaya) {
-            Transaksi transaksi = new Transaksi("TRANS" + (daftarTransaksi.size() + 1), mobil, customer.getPembeli(),new Date(),hargaJual);
             daftarTransaksi.add(transaksi);
             stokMobil.hapusMobil(mobil); // Menghapus mobil dari stok setelah terjual
             customer.setSaldo(customer.getSaldo() - totalBiaya); // Kurangi saldo customer
-            System.out.println("Transaksi berhasil!" );
+            System.out.println("Transaksi berhasil!");
         } else {
             System.out.println("Saldo tidak cukup untuk melakukan transaksi.");
         }
+    }
+
+    public StokMobil getStokMobil() {
+        return stokMobil;
     }
 
     public void tampilkanDaftarTransaksi() {
@@ -39,11 +49,8 @@ public class Dealer {
             transaksi.infoTransaksi();
         }
     }
-    public List<Transaksi> getDaftarTransaksi() {
-        return daftarTransaksi;
-    }
+
     public void tambahMobilKeStok(Mobil mobil) {
         stokMobil.tambahMobil(mobil);
     }
 }
-

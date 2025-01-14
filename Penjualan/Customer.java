@@ -1,18 +1,13 @@
 package Penjualan;
 
-import BahanBakar.Mobil;
-
-import java.util.Date;
-
-public class Customer extends Transaksi {
+public class Customer {
     private String nama;
     private String alamat;
     private String email;
     private int noHp;
     private double saldo;
 
-    public Customer(String idTransaksi, Mobil mobil, String pembeli, Date tanggalTransaksi, double hargaJual, String alamat, String email, int noHp, double saldo, String nama) {
-        super(idTransaksi, mobil, pembeli, tanggalTransaksi, hargaJual);
+    public Customer(String nama, String alamat, String email, int noHp, double saldo) {
         this.nama = nama;
         this.alamat = alamat;
         this.email = email;
@@ -20,20 +15,27 @@ public class Customer extends Transaksi {
         this.saldo = saldo;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
+    public String getNama() {
+        return nama;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getNoHp() {
+        return noHp;
     }
 
     public double getSaldo() {
         return saldo;
     }
 
-    public double getHargaJual() {
-        return super.getHargaJual();
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
-
-    public double hitungPajak() {
-        return getHargaJual() * 0.1;
-    }
-
 }
